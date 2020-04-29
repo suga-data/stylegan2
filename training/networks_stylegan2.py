@@ -500,7 +500,7 @@ def G_synthesis_stylegan2(
 
     # Main layers.
     for res in range(3, resolution_log2 + 1):
-        with tf.variable_scope('%dx%d' % (2**res, 2**res)):
+        with tf.variable_scope('%dx%d' % (4**res, 4**res)):
             x = block(x, res)
             if architecture == 'skip':
                 y = upsample(y)
