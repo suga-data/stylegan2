@@ -453,7 +453,7 @@ def G_synthesis_stylegan2(
     noise_inputs = []
     for layer_idx in range(num_layers - 1):
         res = (layer_idx + 5) // 2
-        shape = [1, 1, 2**res, 2**res]
+        shape = [1, 1, 4**res, 4**res]
         noise_inputs.append(tf.get_variable('noise%d' % layer_idx, shape=shape, initializer=tf.initializers.random_normal(), trainable=False))
 
     # Single convolution layer with all the bells and whistles.
