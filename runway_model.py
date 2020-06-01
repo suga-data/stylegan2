@@ -3,6 +3,7 @@ import numpy as np
 import tensorflow as tf
 import dnnlib.tflib as tflib
 import runway
+from runway import image
 
 fmt = dict(func=tflib.convert_images_to_uint8, nchw_to_nhwc=True)
 
