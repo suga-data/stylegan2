@@ -25,7 +25,7 @@ generate_inputs = {
 }
 
 @runway.command('generate', inputs={ 'image': image }, outputs={'image': runway.image})
-def convert(model, args):
+def generate(model, args):
     return process_input_image(args['image'])
 
 
