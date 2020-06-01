@@ -24,15 +24,9 @@ generate_inputs = {
     'truncation': runway.number(min=0, max=1, default=0.8, step=0.01)
 }
 
-@runway.command('generate', inputs=generate_inputs, outputs={'image': runway.image})
-def convert(model, inputs):
-    image = inputs['image']
-    truncation = inputs['truncation']
-    latents = image.reshape((1, 512))
-    images = model.run(latents, None, truncation_psi=truncation, randomize_noise=False, output_transform=fmt)
-    output = np.clip(images[0], 0, 255).astype(np.uint8)
-    return {'image': output}
-
+@runway.command('generate', inputs={ 'image': image }, outputs={'image': runway.image})
+def convert(model, args):
+    return process_input_image(args['image'])
 
 
 if __name__ == '__main__':
